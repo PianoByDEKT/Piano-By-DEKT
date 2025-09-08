@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Piano by DEKT</title>
+  <meta name="description" content="Official site of DEKT (Dominik Nieroba) — original piano compositions and scores."/>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/727/727245.png" />
+
+  <style>
+  
+    :root{
+      --bg-1: #0f1724;
+      --bg-2: #071023;
+      --accent-1: #3981FF;
+      --accent-2: #7CF5D6;
+      --glass: rgba(255,255,255,0.06);
+      --card-bg: rgba(255,255,255,0.02);
+      --muted: rgba(255,255,255,0.7);
+      --glass-border: rgba(255,255,255,0.06);
+      --radius: 18px;
+      --maxw: 1200px;
+      --easing: cubic-bezier(.2,.9,.2,1);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(57,129,255,0.06), transparent),
+                  linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 100%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-y: scroll;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    header{
+      position: relative;
+      z-index: 3;
+      padding: clamp(28px,6vw,60px) 20px;
+      text-align: center;
+      overflow: visible;
+      backdrop-filter: blur(6px) saturate(1.1);
+    }
+
+    .container{
+      max-width: var(--maxw);
+      margin: 28px auto;
+      padding: 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius: var(--radius);
+      padding: 18px;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6), 0 1px 0 rgba(255,255,255,0.02) inset;
+      transform-style: preserve-3d;
+      perspective: 1200px;
+      transition: transform .25s var(--easing), box-shadow .25s var(--easing);
+      overflow: hidden;
+      min-height: 120px;
+      display:flex;
+      flex-direction:column;
+      margin-bottom: 28px; /* aby karty były pionowo */
+    }
+
+    .card .meta{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-bottom:12px;
+    }
+
+    .meta .name{
+      font-weight:700;
+      font-size:1.05rem;
+      color: #fff;
+    }
+
+    .meta .by{
+      font-size:0.9rem;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .iframe-wrap{
+      border-radius:12px;
+      overflow:hidden;
+      background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.45));
+      margin-top: 6px;
+      box-shadow: 0 8px 28px rgba(2,6,23,0.45);
+    }
+
+    .iframe-wrap iframe{
+      width:100%;
+      height: 360px;
+      border:0;
+      display:block;
+      background: transparent;
+    }
+
+    .card .actions{
+      margin-top:12px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+
+    .ghost{
+      font-size:0.9rem;
+      color:rgba(255,255,255,0.6);
+      background: transparent;
+      border: 1px dashed rgba(255,255,255,0.04);
+      padding:8px 12px;
+      border-radius: 12px;
+    }
+
+    .btn {
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:8px 14px;
+      border-radius: 999px;
+      text-decoration:none;
+      font-weight:600;
+      color: white;
+      background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 6px 20px rgba(8,12,30,0.6), 0 1px 0 rgba(255,255,255,0.02) inset;
+      transition: transform .22s var(--easing), box-shadow .22s var(--easing), filter .22s;
+    }
+    .btn:hover{ transform: translateY(-3px) scale(1.02); filter:brightness(1.05) }
+    .btn.primary{
+      background: linear-gradient(90deg,var(--accent-1), #7c6bff);
+      box-shadow: 0 10px 40px rgba(57,129,255,0.12), 0 4px 18px rgba(124,107,255,0.06);
+    }
+    
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Piano by DEKT</h1>
+    <p>Piano by DEKT – Odkryj oryginalne, autorskie kompozycje fortepianowe Dominika Nieroby, od solowych utworów po aranżacje i duety.</p>
+  </header>
+  
+<div style="margin-bottom:20px;">
+  <input id="searchInput" type="text" placeholder="Wyszukaj utwór..." style="
+    width:100%;
+    padding:12px 16px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.02);
+    color:#fff;
+    font-size:1rem;
+  "/>
+</div>
+<section class="container" role="region">
+  <h1><middle>Najnowszy Utwór</middle></h1>
+
+  <article class="card" data-track-id="27477607">
+    <div class="meta">
+      <div class="name">Zandaka (Piano Solo)</div>
+      <div class="by">Piano ⋅ Score</div>
+    </div>
+    <div class="iframe-wrap" data-iframe='{"src":"https://musescore.com/user/90159607/scores/27477607/embed"}'>
+      <div class="ghost">Tap or scroll to load preview...</div>
+    </div>
+    <div class="actions">
+      <a class="btn" href="https://musescore.com/user/90159607/scores/27477607/s/uI0Kun" target="_blank">Open on MuseScore</a>
+      <span class="by">Length: —</span>
+    </div>
+  </article>
+</section>
+
+  <main class="container" role="main">
+    <h2>Partytury i Podgląd</h2>
+
+    <!-- ========== CARD LIST ========== -->
+    <article class="card" tabindex="0" data-track-id="27102838">
+      <div class="meta">
+        <div>
+          <div class="name">Procrastinating Perfectionist (Piano Solo)</div>
+         
+        </div>
+        <div class="by">Piano ⋅ Score</div>
+      </div>
+      <div class="iframe-wrap" data-iframe='{"src":"https://musescore.com/user/90159607/scores/27102838/embed"}'>
+        <div class="ghost">Tap or scroll to load preview...</div>
+      </div>
+      <div class="actions">
+        <a class="btn" href="https://musescore.com/user/90159607/scores/27102838/s/2iZeXK" target="_blank" rel="noopener">Open on MuseScore</a>
+        <span style="flex:1"></span>
+        <span class="by">Length: —</span>
+      </div>
+    </article>
+
+    <article class="card" tabindex="0" data-track-id="27256486">
+      <div class="meta">
+        <div>
+          <div class="name">Seeking (Piano Solo)</div>
+          
+        </div>
+        <div class="by">Piano ⋅ Score</div>
+      </div>
+      <div class="iframe-wrap" data-iframe='{"src":"https://musescore.com/user/90159607/scores/27256486/embed"}'>
+        <div class="ghost">Tap or scroll to load preview...</div>
+      </div>
+      <div class="actions">
+        <a class="btn" href="https://musescore.com/user/90159607/scores/27256486/s/eEnX9Z" target="_blank" rel="noopener">Open on MuseScore</a>
+        <span style="flex:1"></span>
+        <span class="by">Length: —</span>
+      </div>
+    </article>
+
+    <article class="card" tabindex="0" data-track-id="27202720">
+      <div class="meta">
+        <div>
+          <div class="name">INFERNO (Piano Solo)</div>
+        
+        </div>
+        <div class="by">Piano ⋅ Score</div>
+      </div>
+      <div class="iframe-wrap" data-iframe='{"src":"https://musescore.com/user/90159607/scores/27202720/embed"}'>
+        <div class="ghost">Tap or scroll to load preview...</div>
+      </div>
+      <div class="actions">
+        <a class="btn" href="https://musescore.com/user/90159607/scores/27202720/s/ed4_kY" target="_blank" rel="noopener">Open on MuseScore</a>
+        <span style="flex:1"></span>
+        <span class="by">Length: —</span>
+      </div>
+    </article>
+
+    <article class="card" tabindex="0" data-track-id="27112150">
+      <div class="meta">
+        <div>
+          <div class="name">Clarinet Sonata (Piano And Clarinet Duet)</div>
+         
+        </div>
+        <div class="by">Piano ⋅ Score</div>
+      </div>
+      <div class="iframe-wrap" data-iframe='{"src":"https://musescore.com/user/90159607/scores/27112150/embed"}'>
+        <div class="ghost">Tap or scroll to load preview...</div>
+      </div>
+      <div class="actions">
+        <a class="btn" href="https://musescore.com/user/90159607/scores/27112150/s/IiMp1L" target="_blank" rel="noopener">Open on MuseScore</a>
+        <span style="flex:1"></span>
+        <span class="by">Length: —</span>
+      </div>
+    </article>
+
+    <article class="card" tabindex="0" data-track-id="27085228">
+      <div class="meta">
+        <div>
+          <div class="name">The Best!!!(Orchestral)</div>
+          
+        </div>
+        <div class="by">Piano ⋅ Score</div>
+      </div>
+      <div class="iframe-wrap" data-iframe='{"src":"https://musescore.com/user/90159607/scores/27085228/embed"}'>
+        <div class="ghost">Tap or scroll to load preview...</div>
+      </div>
+      <div class="actions">
+        <a class="btn" href="https://musescore.com/user/90159607/scores/27085228/s/tZtLHO" target="_blank" rel="noopener">Open on MuseScore</a>
+        <span style="flex:1"></span>
+        <span class="by">Length: —</span>
+      </div>
+    </article>
+
+    <article class="card" tabindex="0" data-track-id="27081232">
+      <div class="meta">
+        <div>
+          <div class="name">Playing With Love (Piano And Violino Duet)</div>
+          
+        </div>
+        <div class="by">Piano ⋅ Score</div>
+      </div>
+      <div class="iframe-wrap" data-iframe='{"src":"https://musescore.com/user/90159607/scores/27081232/embed"}'>
+        <div class="ghost">Tap or scroll to load preview...</div>
+      </div>
+      <div class="actions">
+        <a class="btn" href="https://musescore.com/user/90159607/scores/27081232/s/GICIQk" target="_blank" rel="noopener">Open on MuseScore</a>
+        <span style="flex:1"></span>
+        <span class="by">Length: —</span>
+      </div>
+    </article>
+
+    <article class="card" tabindex="0" data-track-id="26972164">
+      <div class="meta">
+        <div>
+          <div class="name">Valiance (Piano Solo)</div>
+        
+        </div>
+        <div class="by">Piano ⋅ Score</div>
+      </div>
+      <div class="iframe-wrap" data-iframe='{"src":"https://musescore.com/user/90159607/scores/26972164/embed"}'>
+        <div class="ghost">Tap or scroll to load preview...</div>
+      </div>
+      <div class="actions">
+        <a class="btn" href="https://musescore.com/user/90159607/scores/26972164/s/FRMuTu" target="_blank" rel="noopener">Open on MuseScore</a>
+        <span style="flex:1"></span>
+        <span class="by">Length: —</span>
+      </div>
+    </article>
+
+    <article class="card" tabindex="0" data-track-id="26946856">
+      <div class="meta">
+        <div>
+          <div class="name">JUPITORIA (Piano Solo)</div>
+        
+        </div>
+        <div class="by">Piano ⋅ Score</div>
+      </div>
+      <div class="iframe-wrap" data-iframe='{"src":"https://musescore.com/user/90159607/scores/26946856/embed"}'>
+        <div class="ghost">Tap or scroll to load preview...</div>
+      </div>
+      <div class="actions">
+        <a class="btn" href="https://musescore.com/user/90159607/scores/26946856/s/fUjPjb" target="_blank" rel="noopener">Open on MuseScore</a>
+        <span style="flex:1"></span>
+        <span class="by">Length: —</span>
+      </div>
+    </article>
+    <article class="card" data-track-id="27475942">
+  <div class="meta">
+    <div class="name">Rainy Day (Piano Solo)</div>
+    <div class="by"> Piano ⋅ Score</div>
+  </div>
+  <div class="iframe-wrap" data-iframe='{"src":"https://musescore.com/user/90159607/scores/27475942/embed"}'>
+    <div class="ghost">Tap or scroll to load preview...</div>
+  </div>
+  <div class="actions">
+    <a class="btn" href="https://musescore.com/user/90159607/scores/27475942/s/pxO8YR" target="_blank">Open on MuseScore</a>
+    <span class="by">Length: —</span>
+  </div>
+</article>
+<article class="card" data-track-id="27475981">
+  <div class="meta">
+    <div class="name">Flow (Piano Solo)</div>
+    <div class="by"> Piano ⋅ Score</div>
+  </div>
+  <div class="iframe-wrap" data-iframe='{"src":"https://musescore.com/user/90159607/scores/27475981/embed"}'>
+    <div class="ghost">Tap or scroll to load preview...</div>
+  </div>
+  <div class="actions">
+    <a class="btn" href="https://musescore.com/user/90159607/scores/27475981/s/zghlGQ" target="_blank">Open on MuseScore</a>
+    <span class="by">Length: —</span>
+  </div>
+</article>
+<article class="card" data-track-id="27476065">
+  <div class="meta">
+    <div class="name">Transcendental Etude No. 13 "DEKTOMANIA" (Piano Solo)</div>
+    <div class="by"> Piano ⋅ Score</div>
+  </div>
+  <div class="iframe-wrap" data-iframe='{"src":"https://musescore.com/user/90159607/scores/27476065/embed"}'>
+    <div class="ghost">Tap or scroll to load preview...</div>
+  </div>
+  <div class="actions">
+    <a class="btn" href="https://musescore.com/user/90159607/scores/27476065/s/wMr4q8" target="_blank">Open on MuseScore</a>
+    <span class="by">Length: —</span>
+  </div>
+</article>
+<article class="card" data-track-id="27476317">
+  <div class="meta">
+    <div class="name">Carols of the Bells (Arrangement, Piano Solo)</div>
+    <div class="by">Piano ⋅ Score</div>
+  </div>
+  <div class="iframe-wrap" data-iframe='{"src":"https://musescore.com/user/90159607/scores/27476317/embed"}'>
+    <div class="ghost">Tap or scroll to load preview...</div>
+  </div>
+  <div class="actions">
+    <a class="btn" href="https://musescore.com/user/90159607/scores/27476317/s/-H6NLm" target="_blank">Open on MuseScore</a>
+    <span class="by">Length: —</span>
+  </div>
+</article>
+<article class="card" data-track-id="27476410">
+  <div class="meta">
+    <div class="name">Elementia (Piano Solo)</div>
+    <div class="by">Piano ⋅ Score</div>
+  </div>
+  <div class="iframe-wrap" data-iframe='{"src":"https://musescore.com/user/90159607/scores/27476410/embed"}'>
+    <div class="ghost">Tap or scroll to load preview...</div>
+  </div>
+  <div class="actions">
+    <a class="btn" href="https://musescore.com/user/90159607/scores/27476410/s/woHaYq" target="_blank">Open on MuseScore</a>
+    <span class="by">Length: —</span>
+  </div>
+</article>
+<article class="card" data-track-id="27476578">
+  <div class="meta">
+    <div class="name">Lunar Passion (Orchestral)</div>
+    <div class="by">Piano ⋅ Score</div>
+  </div>
+  <div class="iframe-wrap" data-iframe='{"src":"https://musescore.com/user/90159607/scores/27476578/embed"}'>
+    <div class="ghost">Tap or scroll to load preview...</div>
+  </div>
+  <div class="actions">
+    <a class="btn" href="https://musescore.com/user/90159607/scores/27476578/s/RqksKi" target="_blank">Open on MuseScore</a>
+    <span class="by">Length: —</span>
+  </div>
+</article>
+<article class="card" data-track-id="26892952">
+  <div class="meta">
+    <div class="name">Ablaze (Piano Solo)</div>
+    <div class="by">Piano ⋅ Score</div>
+  </div>
+  <div class="iframe-wrap" data-iframe='{"src":"https://musescore.com/user/90159607/scores/26892952/embed"}'>
+    <div class="ghost">Tap or scroll to load preview...</div>
+  </div>
+  <div class="actions">
+    <a class="btn" href="https://musescore.com/user/90159607/scores/26892952/s/n58ave" target="_blank">Open on MuseScore</a>
+    <span class="by">Length: —</span>
+  </div>
+</article>
+<article class="card" data-track-id="27477319">
+  <div class="meta">
+    <div class="name">Fluse (Piano Solo)</div>
+    <div class="by">Piano ⋅ Score</div>
+  </div>
+  <div class="iframe-wrap" data-iframe='{"src":"https://musescore.com/user/90159607/scores/27477319/embed"}'>
+    <div class="ghost">Tap or scroll to load preview...</div>
+  </div>
+  <div class="actions">
+    <a class="btn" href="https://musescore.com/user/90159607/scores/27477319/s/ycXnpz" target="_blank">Open on MuseScore</a>
+    <span class="by">Length: —</span>
+  </div>
+</article>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+  </main>
+
+  <!-- Lazy-load script only, tilt removed -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const cards = document.querySelectorAll('.iframe-wrap');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            const wrap = entry.target;
+            const iframeData = JSON.parse(wrap.getAttribute('data-iframe'));
+            const iframe = document.createElement('iframe');
+            iframe.width = "100%";
+            iframe.height = "394";
+            iframe.src = iframeData.src;
+            iframe.frameBorder = "0";
+            iframe.allow = "autoplay; fullscreen";
+            iframe.allowFullscreen = true;
+            wrap.innerHTML = "";
+            wrap.appendChild(iframe);
+            observer.unobserve(wrap);
+          }
+        });
+      }, {threshold: 0.1});
+      cards.forEach(card => observer.observe(card));
+    });
+  </script>
+  <script>
+  // Search filter
+  document.getElementById('searchInput').addEventListener('input', function() {
+    const filter = this.value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      const name = card.querySelector('.name').textContent.toLowerCase();
+      if(name.includes(filter)) {
+        card.style.display = "flex"; // pokazuje kartę
+      } else {
+        card.style.display = "none"; // ukrywa kartę
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
