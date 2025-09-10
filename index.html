@@ -35,6 +35,65 @@
       overflow-y: scroll;
       -webkit-tap-highlight-color: transparent;
     }
+    .product-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.btn.primary {
+  background: linear-gradient(90deg,#3981FF,#7CF5D6);
+  color:white;
+  padding:10px 20px;
+  border:none;
+  cursor:pointer;
+  border-radius:12px;
+}
+input[type="email"] {
+  width: 90%;
+  padding: 8px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+    
+    .shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.product-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border-radius: 18px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 8px 20px rgba(2,6,23,0.5);
+  text-align: center;
+}
+
+.product-card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.product-card p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+  margin: 10px 0;
+}
+
+.price {
+  display: block;
+  font-weight: 700;
+  margin: 12px 0;
+  color: var(--accent-2);
+  font-size: 1.1rem;
+}
+
 
     header{
       position: relative;
@@ -144,10 +203,13 @@
   </style>
 </head>
 <body>
+  
   <header>
     <h1>Piano by DEKT</h1>
     <p>Piano by DEKT – Odkryj oryginalne, autorskie kompozycje fortepianowe Dominika Nieroby, od solowych utworów po aranżacje i duety.</p>
   </header>
+  
+  
   
 <div style="margin-bottom:20px;">
   <input id="searchInput" type="text" placeholder="Wyszukaj utwór..." style="
@@ -160,9 +222,22 @@
     font-size:1rem;
   "/>
 </div>
-<section class="container" role="region">
-  <h1><middle>Najnowsze Utwór</middle></h1>
 
+
+
+<section class="container" id="shop">
+  <h2>Sklep – Nuty PDF</h2>
+
+<div class="product-card">
+  <h3>Spesus (Piano Solo)</h3>
+  <p>Oficjalne nuty w formacie PDF.</p>
+  <span class="price">10 zł</span>
+  <button class="btn primary" onclick="window.location.href='https://payhip.com/b/yONU1'">Kup teraz</button>
+</div>
+
+
+<section class="container" role="region">
+  <h1><middle>Najnowsze Utwóry</middle></h1>
 <article class="card" data-track-id="27504544">
   <div class="meta">
     <div class="name">Iris Flower (Piano Solo)</div>
@@ -172,15 +247,14 @@
     <div class="ghost">Tap or scroll to load preview...</div>
   </div>
   <div class="actions">
-    <a class="btn" href="https://musescore.com/user/90159607/scores/27504544/s/VoVlMe" target="_blank">Open on MuseScore</a>
-    <span class="by">Length: —</span>
+   
+  
   </div>
 </article>
 
 <article class="card" data-track-id="27477607"><div class="meta"><div class="name">Zandaka (Piano Solo)</div>
   <div class="by">Piano ⋅ Score</div></div><div class="iframe-wrap" data-iframe='{"src":"https://musescore.com/user/90159607/scores/27477607/embed"}'>
-    <div class="ghost">Tap or scroll to load preview...</div></div><div class="actions"><a class="btn" href="https://musescore.com/user/90159607/scores/27477607/s/uI0Kun" target="_blank">Open on MuseScore</a>
-      <span class="by">Length: —</span></div>
+    
 </article>
 
 
@@ -202,9 +276,7 @@
         <div class="ghost">Tap or scroll to load preview...</div>
       </div>
       <div class="actions">
-        <a class="btn" href="https://musescore.com/user/90159607/scores/27102838/s/2iZeXK" target="_blank" rel="noopener">Open on MuseScore</a>
-        <span style="flex:1"></span>
-        <span class="by">Length: —</span>
+       
       </div>
     </article>
 
@@ -220,9 +292,7 @@
         <div class="ghost">Tap or scroll to load preview...</div>
       </div>
       <div class="actions">
-        <a class="btn" href="https://musescore.com/user/90159607/scores/27256486/s/eEnX9Z" target="_blank" rel="noopener">Open on MuseScore</a>
-        <span style="flex:1"></span>
-        <span class="by">Length: —</span>
+      
       </div>
     </article>
 
@@ -238,9 +308,7 @@
         <div class="ghost">Tap or scroll to load preview...</div>
       </div>
       <div class="actions">
-        <a class="btn" href="https://musescore.com/user/90159607/scores/27202720/s/ed4_kY" target="_blank" rel="noopener">Open on MuseScore</a>
-        <span style="flex:1"></span>
-        <span class="by">Length: —</span>
+       
       </div>
     </article>
 
@@ -256,9 +324,7 @@
         <div class="ghost">Tap or scroll to load preview...</div>
       </div>
       <div class="actions">
-        <a class="btn" href="https://musescore.com/user/90159607/scores/27112150/s/IiMp1L" target="_blank" rel="noopener">Open on MuseScore</a>
-        <span style="flex:1"></span>
-        <span class="by">Length: —</span>
+       
       </div>
     </article>
 
@@ -274,9 +340,7 @@
         <div class="ghost">Tap or scroll to load preview...</div>
       </div>
       <div class="actions">
-        <a class="btn" href="https://musescore.com/user/90159607/scores/27085228/s/tZtLHO" target="_blank" rel="noopener">Open on MuseScore</a>
-        <span style="flex:1"></span>
-        <span class="by">Length: —</span>
+        
       </div>
     </article>
 
@@ -292,9 +356,7 @@
         <div class="ghost">Tap or scroll to load preview...</div>
       </div>
       <div class="actions">
-        <a class="btn" href="https://musescore.com/user/90159607/scores/27081232/s/GICIQk" target="_blank" rel="noopener">Open on MuseScore</a>
-        <span style="flex:1"></span>
-        <span class="by">Length: —</span>
+       
       </div>
     </article>
 
@@ -310,9 +372,7 @@
         <div class="ghost">Tap or scroll to load preview...</div>
       </div>
       <div class="actions">
-        <a class="btn" href="https://musescore.com/user/90159607/scores/26972164/s/FRMuTu" target="_blank" rel="noopener">Open on MuseScore</a>
-        <span style="flex:1"></span>
-        <span class="by">Length: —</span>
+  
       </div>
     </article>
 
@@ -328,9 +388,7 @@
         <div class="ghost">Tap or scroll to load preview...</div>
       </div>
       <div class="actions">
-        <a class="btn" href="https://musescore.com/user/90159607/scores/26946856/s/fUjPjb" target="_blank" rel="noopener">Open on MuseScore</a>
-        <span style="flex:1"></span>
-        <span class="by">Length: —</span>
+    
       </div>
     </article>
     <article class="card" data-track-id="27475942">
@@ -342,8 +400,7 @@
     <div class="ghost">Tap or scroll to load preview...</div>
   </div>
   <div class="actions">
-    <a class="btn" href="https://musescore.com/user/90159607/scores/27475942/s/pxO8YR" target="_blank">Open on MuseScore</a>
-    <span class="by">Length: —</span>
+
   </div>
 </article>
 <article class="card" data-track-id="27475981">
@@ -355,8 +412,7 @@
     <div class="ghost">Tap or scroll to load preview...</div>
   </div>
   <div class="actions">
-    <a class="btn" href="https://musescore.com/user/90159607/scores/27475981/s/zghlGQ" target="_blank">Open on MuseScore</a>
-    <span class="by">Length: —</span>
+
   </div>
 </article>
 <article class="card" data-track-id="27476065">
@@ -368,8 +424,7 @@
     <div class="ghost">Tap or scroll to load preview...</div>
   </div>
   <div class="actions">
-    <a class="btn" href="https://musescore.com/user/90159607/scores/27476065/s/wMr4q8" target="_blank">Open on MuseScore</a>
-    <span class="by">Length: —</span>
+ 
   </div>
 </article>
 <article class="card" data-track-id="27476317">
@@ -381,8 +436,7 @@
     <div class="ghost">Tap or scroll to load preview...</div>
   </div>
   <div class="actions">
-    <a class="btn" href="https://musescore.com/user/90159607/scores/27476317/s/-H6NLm" target="_blank">Open on MuseScore</a>
-    <span class="by">Length: —</span>
+
   </div>
 </article>
 <article class="card" data-track-id="27476410">
@@ -394,8 +448,7 @@
     <div class="ghost">Tap or scroll to load preview...</div>
   </div>
   <div class="actions">
-    <a class="btn" href="https://musescore.com/user/90159607/scores/27476410/s/woHaYq" target="_blank">Open on MuseScore</a>
-    <span class="by">Length: —</span>
+  
   </div>
 </article>
 <article class="card" data-track-id="27476578">
@@ -407,8 +460,7 @@
     <div class="ghost">Tap or scroll to load preview...</div>
   </div>
   <div class="actions">
-    <a class="btn" href="https://musescore.com/user/90159607/scores/27476578/s/RqksKi" target="_blank">Open on MuseScore</a>
-    <span class="by">Length: —</span>
+
   </div>
 </article>
 <article class="card" data-track-id="26892952">
@@ -420,8 +472,7 @@
     <div class="ghost">Tap or scroll to load preview...</div>
   </div>
   <div class="actions">
-    <a class="btn" href="https://musescore.com/user/90159607/scores/26892952/s/n58ave" target="_blank">Open on MuseScore</a>
-    <span class="by">Length: —</span>
+ 
   </div>
 </article>
 <article class="card" data-track-id="27477319">
@@ -433,8 +484,7 @@
     <div class="ghost">Tap or scroll to load preview...</div>
   </div>
   <div class="actions">
-    <a class="btn" href="https://musescore.com/user/90159607/scores/27477319/s/ycXnpz" target="_blank">Open on MuseScore</a>
-    <span class="by">Length: —</span>
+  
   </div>
 </article>
     <article class="card" data-track-id="27504301">
@@ -446,8 +496,7 @@
     <div class="ghost">Tap or scroll to load preview...</div>
   </div>
   <div class="actions">
-    <a class="btn" href="https://musescore.com/user/90159607/scores/27504301/s/juK9cX" target="_blank">Open on MuseScore</a>
-    <span class="by">Length: —</span>
+
   </div>
 </article>
 <article class="card" data-track-id="27504424">
@@ -459,8 +508,7 @@
     <div class="ghost">Tap or scroll to load preview...</div>
   </div>
   <div class="actions">
-    <a class="btn" href="https://musescore.com/user/90159607/scores/27504424/s/d3i20-" target="_blank">Open on MuseScore</a>
-    <span class="by">Length: —</span>
+
   </div>
 </article>
 <article class="card" data-track-id="27504499">
@@ -472,8 +520,7 @@
     <div class="ghost">Tap or scroll to load preview...</div>
   </div>
   <div class="actions">
-    <a class="btn" href="https://musescore.com/user/90159607/scores/27504499/s/-8Mi29" target="_blank">Open on MuseScore</a>
-    <span class="by">Length: —</span>
+
   </div>
 </article>
 <article class="card" data-track-id="27504544">
@@ -485,14 +532,12 @@
     <div class="ghost">Tap or scroll to load preview...</div>
   </div>
   <div class="actions">
-    <a class="btn" href="https://musescore.com/user/90159607/scores/27504544/s/VoVlMe" target="_blank">Open on MuseScore</a>
-    <span class="by">Length: —</span>
+
   </div>
 </article>
     <article class="card" data-track-id="27477607"><div class="meta"><div class="name">Zandaka (Piano Solo)</div>
       <div class="by">Piano ⋅ Score</div></div><div class="iframe-wrap" data-iframe='{"src":"https://musescore.com/user/90159607/scores/27477607/embed"}'>
-        <div class="ghost">Tap or scroll to load preview...</div></div><div class="actions"><a class="btn" href="https://musescore.com/user/90159607/scores/27477607/s/uI0Kun" target="_blank">Open on MuseScore</a>
-          <span class="by">Length: —</span></div>
+    
     </article>
   </section>
   </main>
@@ -538,8 +583,11 @@
   });
 </script>
 
+
+
 </body>
 </html>
+
 
 
 
