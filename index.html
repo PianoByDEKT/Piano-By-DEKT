@@ -296,6 +296,49 @@ body {
   75% { border-radius: 50% 50% 55% 45%; }
 }
 
+.like-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: Inter, sans-serif;
+}
+
+.like-btn {
+  background: linear-gradient(90deg, #3981FF, #7CF5D6);
+  border: none;
+  border-radius: 50%;
+  padding: 16px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(2,6,23,0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.like-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 28px rgba(2,6,23,0.6);
+}
+
+.like-btn.active .heart {
+  animation: pop 0.3s forwards;
+  color: #FF4D6D;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(1.2); }
+}
+
+.like-count {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #fff;
+}
 
   </style>
 </head>
@@ -311,6 +354,13 @@ body {
   <button class="btn primary" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
     Sklep
   </button>
+  <div class="like-container">
+  <button class="like-btn">
+    <span class="heart">❤️</span>
+  </button>
+  <span class="like-count">0</span>
+</div>
+
 </header>
 
   
@@ -836,6 +886,23 @@ backToTop.addEventListener('click', () => {
   window.scrollTo({top:0, behavior:'smooth'});
 });
 </script>
+// Interaktywność z liczeniem lajków
+const likeBtn = document.querySelector('.like-btn');
+const likeCount = document.querySelector('.like-count');
+let count = 0;
+
+likeBtn.addEventListener('click', () => {
+  if (!likeBtn.classList.contains('active')) {
+    count++;
+    likeCount.textContent = count;
+    likeBtn.classList.add('active');
+  } else {
+    // opcjonalnie możliwość odkliknięcia i zmniejszenia liczby
+    count--;
+    likeCount.textContent = count;
+    likeBtn.classList.remove('active');
+  }
+});
 
 
 <button id="backToTop">↑</button>
