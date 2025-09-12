@@ -199,159 +199,18 @@ input[type="email"] {
       box-shadow: 0 10px 40px rgba(57,129,255,0.12), 0 4px 18px rgba(124,107,255,0.06);
     }
     
-    /* Hover efekt kart */
-.card {
-  transition: transform 0.3s var(--easing), box-shadow 0.3s var(--easing);
-}
-.card:hover {
-  transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 12px 28px rgba(2,6,23,0.7), 0 2px 0 rgba(255,255,255,0.02) inset;
-}
-
-/* Fade-in efekt przy scrollowaniu */
-.card {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-.card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#backToTop {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: var(--accent-1);
-  color: #fff;
-  border: none;
-  padding: 12px 16px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1.5rem;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-  display: none;
-  z-index: 1000;
-  transition: transform 0.2s;
-}
-#backToTop:hover {
-  transform: scale(1.1);
-}
-
-.iframe-wrap iframe {
-  height: clamp(250px, 50vw, 400px); /* responsywna wysokość */
-}
-
-body {
-  margin: 0;
-  height: 100vh;
-  background: var(--bg-1);
-  overflow: hidden;
-  position: relative;
-}
-
-/* Płynne blobsy */
-.blob {
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle at 30% 30%, #3981FF, #7CF5D6);
-  border-radius: 50%;
-  opacity: 0.4; /* mniej intensywne */
-  animation: blobMove 20s infinite ease-in-out, blobShape 10s infinite ease-in-out;
-}
-
-.blob:nth-child(2) {
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle at 40% 40%, #7CF5D6, #3981FF);
-  animation-duration: 25s, 12s;
-  top: 20%;
-  left: 60%;
-}
-
-.blob:nth-child(3) {
-  width: 180px;
-  height: 180px;
-  background: radial-gradient(circle at 50% 50%, #3981FF, #7CF5D6);
-  animation-duration: 22s, 15s;
-  top: 50%;
-  left: 20%;
-}
-
-/* Poruszanie */
-@keyframes blobMove {
-  0%, 100% { transform: translate(0,0); }
-  25% { transform: translate(20px, -15px); }
-  50% { transform: translate(-15px, 25px); }
-  75% { transform: translate(15px, 10px); }
-}
-
-/* Zmiana kształtu */
-@keyframes blobShape {
-  0%, 100% { border-radius: 50% 50% 50% 50%; }
-  25% { border-radius: 45% 55% 50% 50%; }
-  50% { border-radius: 55% 45% 50% 55%; }
-  75% { border-radius: 50% 50% 55% 45%; }
-}
-
-/* Upewniamy się, że body scrolluje */
-html, body {
-  height: auto;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  font-family: Inter, sans-serif;
-  overflow-y: scroll;
-  background: var(--bg-1);
-  color: #e6eef8;
-}
-
-/* Scrollbar dla Chrome, Safari, Edge */
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 12px;
-  backdrop-filter: blur(6px); /* efekt szkła */
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(57,129,255,0.6), rgba(124,245,214,0.6));
-  border-radius: 12px;
-  border: 3px solid rgba(0,0,0,0.1);
-  backdrop-filter: blur(4px); /* lekki blur na kciuku */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgba(57,129,255,0.8), rgba(124,245,214,0.8));
-  transform: scale(1.05);
-}
-
-/* Scrollbar dla Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(57,129,255,0.6) rgba(255,255,255,0.02);
-}
 
   </style>
 </head>
 <body>
   
-  <div class="blob"></div>
-<div class="blob"></div>
-<div class="blob"></div>
-
   <header>
-  <h1>Piano by DEKT</h1>
-  <p>Piano by DEKT – Odkryj oryginalne, autorskie kompozycje fortepianowe Dominika Nieroby, od solowych utworów po aranżacje i duety.</p>
+  <h1>DEKTSTORE</h1>
+  <p>DEKTSTORE – Odkryj oryginalne, autorskie kompozycje fortepianowe Dominika Nieroby/DEKT'a, od solowych utworów po aranżacje i duety.</p>
+  <h1>👇</h1>
   <button class="btn primary" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
-    Sklep
+    <h>Sklep</h>
   </button>
-  
 </header>
 
   
@@ -387,10 +246,12 @@ html, body {
   <article class="card" tabindex="0" style="flex: 1 1 250px; text-align: center; padding: 1em; border: 1px solid #ddd; border-radius: 8px;">
     <div class="meta" style="margin-bottom: 1em;">
       <div class="name" style="font-weight: bold; font-size: 1.2em;">JUPITORIA (Piano Solo)</div>
-      <div class="by" style="color: #555; margin-top: 0.3em;">Oficjalne nuty ⋅ PDF</div>
+    
+      <div class="by" style="color: #FF0; margin-top: 0.3em;">BESTSELLER
+    </div>
     </div>
     <div class="actions" style="display: flex; flex-direction: column; align-items: center; gap: 0.5em;">
-      <button class="btn primary" onclick="window.location.href='https://payhip.com/b/DVa1T'" style="padding: 0.5em 1em; cursor: pointer;">Kup teraz</button>
+      <button class="btn primary" onclick="window.location.href='https://www.naffy.io/dominik-domin-cgSVq/jupitoria-pdf-notes-3wd'" style="padding: 0.5em 1em; cursor: pointer;">Kup teraz</button>
       <span class="price" style="font-weight: bold;">20 zł</span>
     </div>
   </article>
@@ -401,8 +262,8 @@ html, body {
       <div class="by" style="color: #555; margin-top: 0.3em;">Oficjalne nuty ⋅ PDF</div>
     </div>
     <div class="actions" style="display: flex; flex-direction: column; align-items: center; gap: 0.5em;">
-      <button class="btn primary" onclick="window.location.href='https://payhip.com/b/lDwsB'" style="padding: 0.5em 1em; cursor: pointer;">Kup teraz</button>
-      <span class="price" style="font-weight: bold;">9 zł</span>
+      <button class="btn primary" onclick="window.location.href='https://www.naffy.io/dominik-domin-cgSVq/restless-pdf-notes-P3I'" style="padding: 0.5em 1em; cursor: pointer;">Kup teraz</button>
+      <span class="price" style="font-weight: bold;">18 zł</span>
     </div>
   </article>
 </div>
@@ -421,7 +282,7 @@ html, body {
     <div class="by">Oficjalne nuty ⋅ PDF</div>
   </div>
   <div class="actions">
-    <button class="btn primary" onclick="window.location.href='https://payhip.com/b/iBsv1'">Kup teraz</button>
+    <button class="btn primary" onclick="window.location.href='https://www.naffy.io/dominik-domin-cgSVq/ablaze-pdf-notes-ZgP'">Kup teraz</button>
     <span class="price">15 zł</span>
   </div>
 </article>
@@ -434,8 +295,8 @@ html, body {
     <div class="by">Oficjalne nuty ⋅ PDF</div>
   </div>
   <div class="actions">
-    <button class="btn primary" onclick="window.location.href='https://payhip.com/b/PDwB1'">Kup teraz</button>
-    <span class="price">12 zł</span>
+    <button class="btn primary" onclick="window.location.href='https://www.naffy.io/dominik-domin-cgSVq/zandaka-pdf-notes-5iq'">Kup teraz</button>
+    <span class="price">13 zł</span>
   </div>
 </article>
  
@@ -447,8 +308,8 @@ html, body {
     <div class="by">Oficjalne nuty ⋅ PDF</div>
   </div>
   <div class="actions">
-    <button class="btn primary" onclick="window.location.href='https://payhip.com/b/yONU1'">Kup teraz</button>
-    <span class="price">10 zł</span>
+    <button class="btn primary" onclick="window.location.href='https://www.naffy.io/dominik-domin-cgSVq/spesus-pdf-notes-KBC'">Kup teraz</button>
+    <span class="price">17 zł</span>
   </div>
 </article>
    
@@ -854,32 +715,7 @@ document.querySelector('header .btn.primary').setAttribute('onclick', 'openShop(
   });
 </script>
 
-<script>
-// Fade-in cards on scroll
-const scrollObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      scrollObserver.unobserve(entry.target);
-    }
-  });
-},{threshold:0.1});
 
-document.querySelectorAll('.card').forEach(card => scrollObserver.observe(card));
-</script>
-
-<script>
-const backToTop = document.getElementById('backToTop');
-window.addEventListener('scroll', () => {
-  backToTop.style.display = (window.scrollY > 300) ? 'block' : 'none';
-});
-backToTop.addEventListener('click', () => {
-  window.scrollTo({top:0, behavior:'smooth'});
-});
-</script>
-
-
-<button id="backToTop">↑</button>
 
 </body>
 </html>
